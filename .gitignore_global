@@ -1,0 +1,5 @@
+.ruby-version
+dump.rdb
+.rspec
+.DS_Store
+.byebug_history
