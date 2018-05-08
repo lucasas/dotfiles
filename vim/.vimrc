@@ -76,39 +76,66 @@ set wildignore=vendor/bundle/**,tmp/**,log/**,coverage/**,solr/data
 " handle multiple buffers better
 set hidden
 
-" vundle setup
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" allow project specific vimrc
+set exrc
 
-" let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+" auto install plug.vim
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" plug.vim setup
+call plug#begin('~/.vim/plugged')
 
 " vim bundles
-Bundle 'tomasr/molokai'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
-Bundle 'mileszs/ack.vim'
-Bundle 'ecomba/vim-ruby-refactoring'
-Bundle 'bling/vim-airline'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'msanders/snipmate.vim'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'Syntastic'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'vim-scripts/matchit.zip'
-Bundle 'vim-scripts/AutoComplPop'
-Bundle 'vim-scripts/YankRing.vim'
-Bundle 'vim-scripts/kwbdi.vim'
-Bundle 'vim-scripts/IndexedSearch'
-Bundle 'git://git.wincent.com/command-t.git'
+Plug 'tomasr/molokai'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'mileszs/ack.vim'
+Plug 'ecomba/vim-ruby-refactoring'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'scrooloose/nerdcommenter'
+Plug 'neomake/neomake'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'vim-scripts/matchit.zip'
+Plug 'vim-scripts/YankRing.vim'
+Plug 'vim-scripts/kwbdi.vim'
+Plug 'vim-scripts/IndexedSearch'
+Plug 'esneider/YUNOcommit.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'docker/docker', {'rtp': 'contrib/syntax/vim/'}
+Plug 'sheerun/vim-polyglot'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'c-brenn/phoenix.vim'
+Plug 'tpope/vim-projectionist' " required by phoenix.vim
+Plug 'slashmili/alchemist.vim'
+Plug 'guns/vim-clojure-static'
+Plug 'tpope/vim-fireplace'
+Plug 'bhurlow/vim-parinfer'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'airblade/vim-gitgutter'
+Plug 'thoughtbot/vim-rspec'
+Plug 'valloric/youcompleteme', { 'do': './install.py' }
+Plug 'rust-lang/rust.vim'
+
+" Initialize plugin system
+" All of your Plugins must be added before the following line
+call plug#end()
 
 " enable file type detection
 filetype plugin on
+
 " enable filetype-based indentation
 filetype indent on
 
