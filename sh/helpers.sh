@@ -117,7 +117,7 @@ function ensure_node_is_installed() {
     fi
 }
 
-npm_global_install() {
+function npm_global_install() {
     action "installing node global packages"
 
     ensure_brew "node"
