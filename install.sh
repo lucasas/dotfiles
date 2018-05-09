@@ -11,16 +11,20 @@ set -o pipefail
 
 __script_dir="$(cd "$(dirname "${BASH_SOURCE[${__b3bp_tmp_source_idx:-0}]}")" && pwd)"
 
+# Configuration
+trackpad=false # there is a trackpad in this computer?
+apple_language="en" # system language
+
+# Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
+# `Inches`, `en_GB` with `en_US`, and `true` with `false`.
+apple_locale="pt_BR@currency=USD"
+apple_measurement_units="Centimeters"
+apple_metric_units=true
+timezone="America/Sao_Paulo"
+
 # include some helpers
 source ./sh/helpers.sh
 source ./sh/echos.sh
-
-# exit if hostname is not defined
-HOSTNAME=${hostname:-}
-if [[ -z "$HOSTNAME" ]]; then
-    error "Edit ./install.sh and add your hostname" 1>&2
-    exit 1
-fi
 
 bot "Hi! I'm going to install some packages and tweak your system settings."
 
@@ -48,7 +52,7 @@ do_symlink
 # run homebrew cleanup
 homebrew_cleanup
 
-# configure bash profile
-bash_profile_config
+# copying other files
+copy_other_files
 
 bot "All done! You might need to restart now :)"

@@ -9,8 +9,9 @@ brew "ack"
 brew "ruby"
 brew "tree"
 brew "jq"
-brew "macvim", args: ["--with-override-system-vi"]
+brew "macvim", args: ["--with-override-system-vim"]
 brew "rustup"
+brew "cmake"
 
 cask "font-source-code-pro"
 cask "1Password"

@@ -91,6 +91,8 @@ call plug#begin('~/.vim/plugged')
 
 " vim bundles
 Plug 'tomasr/molokai'
+Plug 'antlypls/vim-colors-codeschool'
+Plug 'tpope/vim-pathogen'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
@@ -103,8 +105,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdcommenter'
 Plug 'neomake/neomake'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -128,6 +128,16 @@ Plug 'airblade/vim-gitgutter'
 Plug 'thoughtbot/vim-rspec'
 Plug 'valloric/youcompleteme', { 'do': './install.py' }
 Plug 'rust-lang/rust.vim'
+Plug 'tomasr/molokai'
+Plug 'vim-ruby/vim-ruby'
+Plug 'mileszs/ack.vim'
+Plug 'ecomba/vim-ruby-refactoring'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'jnwhiteh/vim-golang'
+Plug 'scrooloose/nerdcommenter'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'git://git.wincent.com/command-t.git'
+Plug 'garbas/vim-snipmate'
 
 " Initialize plugin system
 " All of your Plugins must be added before the following line

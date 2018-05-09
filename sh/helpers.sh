@@ -42,12 +42,17 @@ function brew_bundle() {
     ok
 }
 
-function bash_profile_config() {
-  cp 'bash/.bash_profile' "$HOME/.bash_profile"
-  cp 'git/.gitcompletion.sh' "$HOME/.gitcompletion.sh"
+function copy_other_files() {
+  action "copying other files..."
 
-  source $HOME/.bash_profile
-  source "$HOME/.gitcompletion.sh"
+  if [[ ! -e "$HOME/git-completion.sh" ]]; then
+    cp 'sh/git-completion.sh' "$HOME/git-completion.sh"
+  fi 
+
+  mkdir -p $HOME/.vim/tmp/
+  mkdir -p $HOME/.vim/backup/
+
+  ok
 }
 
 function macos_tweaks() {

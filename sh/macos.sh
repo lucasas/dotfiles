@@ -2,7 +2,7 @@
 
 # Mostly taken from https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 
-bot "I'll tweak your Mac OS ${hostname}"
+bot "I'll tweak your Mac OS"
 
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
